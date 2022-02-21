@@ -19,11 +19,12 @@ class VoitureController extends AbstractController
         ]);
     }
     /**
-     * @Route("/listVoiture", name="listVoiture")
+     * @Route("/listVoiture/{marque?}", name="listVoiture")
      */
-    public function listVoiture(){
+    public function listVoiture($marque){
         $voitures=$this->getDoctrine()->getRepository(Voiture::class)->findAll();
-        return$this->render('voiture/listVoiture.html.twig',array('tabVoiture'=>$voitures));
+        $count=$this->getDoctrine()->getRepository(Voiture::class)->searchVoiture($marque);
+        return$this->render('voiture/listVoiture.html.twig',array('tabVoiture'=>$voitures,'count'=>$count,'marque'=>$marque));
     }
     /**
      * @Route("/deleteVoiture/{id}", name="deleteVoiture")
@@ -41,7 +42,7 @@ class VoitureController extends AbstractController
     public function countVoiture($marque){
         $voitures=$this->getDoctrine()->getRepository(Voiture::class)->findAll();
         $count=$this->getDoctrine()->getRepository(Voiture::class)->searchVoiture($marque);
-        return$this->render('voiture/listVoiture.html.twig',array('count'=>$count,'tabVoiture'=>$voitures,'marque'=>$marque));
+        return$this->render('voiture/nombreVoiture.html.twig',array('count'=>$count,'tabVoiture'=>$voitures,'marque'=>$marque));
         //return new Response('le nombre de voiture est:'.$count);
 
 

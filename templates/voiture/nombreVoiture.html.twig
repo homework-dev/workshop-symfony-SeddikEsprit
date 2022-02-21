@@ -1,0 +1,14 @@
+{% for voiture in tabVoiture %}
+    <tr>
+        <td>{{ voiture.id }}</td>
+        <td>{{ voiture.marque }}</td>
+        <td>{{ voiture.dateDebut | date('d-m-Y') }}</td>
+        <td>{{ voiture.dateFin | date('d-m-Y') }}</td>
+        <TD><a href="{{path('deleteVoiture',{'id':voiture.id})  }}">delete</a></TD>
+        <TD><a href="{{path('ajouterChauffeur',{'id':voiture.id})  }}">louer</a></TD>
+        <TD><a href="{{path('countVoiture',{'marque':voiture.marque})  }}">nombre de voiture</a></TD>
+
+    </tr>
+{% endfor %}
+</table>
+

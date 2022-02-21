@@ -19,7 +19,7 @@
             <td>{{ voiture.dateFin | date('d-m-Y') }}</td>
             <TD><a href="{{path('deleteVoiture',{'id':voiture.id})  }}">delete</a></TD>
             <TD><a href="{{path('ajouterChauffeur',{'id':voiture.id})  }}">louer</a></TD>
-            <TD><a href="{{path('countVoiture',{'marque':voiture.marque})  }}">nombre de voiture</a></TD>
+            <TD><a href="{{path('listVoiture',{'marque':voiture.marque})  }}">nombre de voiture</a></TD>
 
         </tr>
     {% endfor %}
