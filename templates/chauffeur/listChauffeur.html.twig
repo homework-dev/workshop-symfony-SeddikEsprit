@@ -1,0 +1,16 @@
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Nom</td>
+        <td>Prenom</td>
+
+    </tr>
+    {% for chauffeur in tabChauffeur %}
+        <tr>
+            <td>{{ chauffeur.id }}</td>
+            <td>{{ chauffeur.nom }}</td>
+            <td>{{ chauffeur.prenom }}</td>
+            <TD><a href="{{path('updateChauffeur',{'id':chauffeur.id})  }}">Update</a></TD>
+        </tr>
+    {% endfor %}
+</table>
